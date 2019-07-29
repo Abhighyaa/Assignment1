@@ -1,0 +1,72 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="script.js"></script>
+    
+    <title>Assignment</title>
+</head>
+<body>
+    <div>
+        <a href="#" data-toggle="modal" data-target="#signInModal">Sign In</a>
+        /
+        <a href="#" data-toggle="modal" data-target="#signUpModal">Sign Up</a>
+    </div>
+    
+    <div class="modal fade" id="signInModal" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+               <p>
+                    <h3 class="d-inline mr-1">Sign In to</h3>
+                    <h3 class="d-inline ml-0"><span class="go">go<span class="ibibo">ibibo<span></h3>
+                </p>
+                <input type="text" id="em" placeholder="Enter email">
+                <input type="password" id="pass" placeholder="Password">
+                
+                <button class="signIn">Sign In</button> 
+            </div>
+          </div>
+        </div>
+
+    </div>
+    <div id="error"></div>
+    <div class="modal fade" id="signUpModal" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body text-center">
+                   <p>
+                        <h3 class="d-inline mr-1">Sign Up</h3>
+                        <h3 class="d-inline ml-0"><span class="go">go<span class="ibibo">ibibo<span></h3>
+                    </p>
+                    <input type="text" id="email" placeholder="Enter email">
+                    <input type="password" id="password" placeholder="Password">
+                    <div class="progress">
+                        <div class="progress-bar bg-info" role="progressbar"  aria-valuenow="" aria-valuemin="0" aria-valuemax="5"></div>
+                    </div>
+                    <input type="password" id="confirm" placeholder="Confirm Password" >
+                    <button class="signUp">Sign Up</button>
+                    
+                </div>
+              </div>
+            </div>
+    
+        </div>
+</body>
+</html>
