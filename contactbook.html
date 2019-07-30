@@ -1,0 +1,110 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact Book</title>
+</head>
+<body>
+    <div>
+        Name : <input type="text" id="name" style="margin: 10px;padding: 5px;"> 
+        Contact : <input type="text" id="contact" style="margin: 10px;padding: 5px;">
+        <button id="add" style="margin: 10px;padding: 5px;">Add </button>
+    </div>
+    <div id="contacts"></div>
+
+    <script>
+        var contacts=[]
+        showContacts();
+        document.getElementById('add').onclick=function(){
+            name=document.getElementById('name').value
+            contact=document.getElementById('contact').value
+            var c={
+                name : name,
+                contact : contact
+            }
+            contacts.push(c)
+            showContacts()
+        }
+        document.addEventListener('click',function(e){
+            if(e.target && e.target.name== 'del'){
+                console.log(e.target.id)
+                k=Number(e.target.id)+1
+                contacts=contacts.slice(0,e.target.id).concat(contacts.slice(k,contacts.length))
+                if(contacts.length==0)
+                document.getElementById('contacts').textContent='No contacts'
+                else{
+                    document.getElementById('contacts').textContent=''
+                    createTable()
+                    for(i=0;i<contacts.length;i++){
+                        var tr=document.createElement('tr')
+                        var td0=document.createElement('td').appendChild(document.createTextNode(i+1))
+                        var td1=document.createElement('td').appendChild(document.createTextNode(contacts[i].name))
+                        var td2=document.createElement('td').appendChild(document.createTextNode(contacts[i].contact))
+                        del=document.createElement('a')
+                        del.setAttribute("name","del")
+                        del.setAttribute("id",i)
+                        del.appendChild(document.createTextNode('Delete'))
+                        var td3=document.createElement('td').appendChild(del)
+                        tr.appendChild(td0)
+                        tr.appendChild(td1)
+                        tr.appendChild(td2)
+                        tr.appendChild(td3)
+                        table.appendChild(tr)
+                    }
+                }
+            }
+        });
+        function createTable(){
+                table=document.createElement('table')
+                var tr=document.createElement('thead')
+                var td0=document.createElement('td').appendChild(document.createTextNode('S.No'))
+                var td1=document.createElement('td').appendChild(document.createTextNode('Name'))
+                var td2=document.createElement('td').appendChild(document.createTextNode('Contact'))
+                var td3=document.createElement('td').appendChild(document.createTextNode('Action'))
+                tr.appendChild(td0)
+                tr.appendChild(td1)
+                tr.appendChild(td2)
+                tr.appendChild(td3)
+                table.appendChild(tr)
+                table.style.padding="10px"
+                table.style.border="1px solid"
+                table.style.borderCollapse="collapse"
+                tr.style.padding="10px"
+                tr.style.margin="10px"
+                tr.style.border="1px solid black"
+                
+                document.getElementById('contacts').appendChild(table)
+        }
+        function showContacts(){
+            if(contacts.length==0){
+                document.getElementById('contacts').textContent="No Contacts"
+            }
+            else{
+                if(document.getElementsByTagName('tr').length==0){
+                    document.getElementById('contacts').textContent=""
+                    createTable()
+                }
+                
+                    i=contacts.length-1
+                    var tr=document.createElement('tr')
+                    var td0=document.createElement('td').appendChild(document.createTextNode(i+1))
+                    var td1=document.createElement('td').appendChild(document.createTextNode(contacts[i].name))
+                    var td2=document.createElement('td').appendChild(document.createTextNode(contacts[i].contact))
+                    del=document.createElement('a')
+                    del.setAttribute("name","del")
+                    del.setAttribute("id",i)
+                    del.appendChild(document.createTextNode('Delete'))
+                    var td3=document.createElement('td').appendChild(del)
+                    tr.appendChild(td0)
+                    tr.appendChild(td1)
+                    tr.appendChild(td2)
+                    tr.appendChild(td3)
+                    table.appendChild(tr)
+                
+            }
+        }
+        
+    </script>
+</body>
+</html>
